@@ -191,7 +191,7 @@ const handleExceed: UploadProps['onExceed'] = (files) => {
           :on-change="handleFolderSelect"
         >
           <template #trigger>
-            <el-button type="primary" style="margin-top: 10px">选择文件</el-button>
+            <el-button type="primary" style="margin-top: 10px" :loading = "loading">选择文件</el-button>
             <br/>
           </template>
         </el-upload>

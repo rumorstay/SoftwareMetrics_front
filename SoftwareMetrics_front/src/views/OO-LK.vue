@@ -122,7 +122,7 @@ const onSubmit = async (formInline) => {
         <el-input v-model="formInline.file_path" placeholder="请输入文件/文件夹路径" clearable/>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="onSubmit(formInline)" >提交</el-button>
+        <el-button type="primary" @click="onSubmit(formInline)" :loading = "loading">提交</el-button>
       </el-form-item>
     </el-form>
     <el-divider></el-divider>
@@ -135,7 +135,7 @@ const onSubmit = async (formInline) => {
       :on-change="handleFolderSelect"
     >
       <template #trigger>
-        <el-button type="primary" style="margin-top: 10px">选择文件</el-button>
+        <el-button type="primary" style="margin-top: 10px" :loading = "loading">选择文件</el-button>
         <br/>
       </template>
 

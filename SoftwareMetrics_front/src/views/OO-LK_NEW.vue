@@ -111,7 +111,7 @@ const onSubmit = async (formInline) => {
              label-position="right"
     >
       <el-form-item label="请输入文件/文件夹路径">
-        <el-input v-model="formInline.image_path" placeholder="请输入文件/文件夹路径" clearable />
+        <el-input v-model="formInline.image_path" placeholder="请输入文件/文件夹路径" clearable  />
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="onSubmit(formInline)" :loading = "loading">提交</el-button>
@@ -127,7 +127,7 @@ const onSubmit = async (formInline) => {
       :on-change="handleFolderSelect"
     >
       <template #trigger>
-        <el-button type="primary" style="margin-top: 10px">选择文件</el-button>
+        <el-button type="primary" style="margin-top: 10px" :loading = "loading">选择文件</el-button>
         <br/>
       </template>
 
@@ -143,7 +143,7 @@ const onSubmit = async (formInline) => {
     <div v-if="ShowtheTable">
       <el-divider ></el-divider>
       <h1 style="margin-bottom: 5px">结果如下：</h1>
-      <el-table :data="tableData" v-loading="loading" style="width: 100%" :v-show="ShowtheTable" height="250">
+      <el-table :data="tableData" style="width: 100%" :v-show="ShowtheTable" height="250">
         <el-table-column prop="className" label="类名" />
         <el-table-column prop="AddedMethods" label="添加方法" />
         <el-table-column prop="CS" label="类规模度量" />
