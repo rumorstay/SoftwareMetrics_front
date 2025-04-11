@@ -70,7 +70,7 @@ const formInline = reactive<RuleForm>({
 
 const onSubmit = async (formInline) => {
   console.log('submit!')
-  console.log(formInline.file_path)
+  console.log(formInline.image_path)
   loading.value = true
   await getOO_LK_new(formInline).then((res)=>{
     ShowtheTable.value = true
@@ -111,10 +111,10 @@ const onSubmit = async (formInline) => {
              label-position="right"
     >
       <el-form-item label="请输入文件/文件夹路径">
-        <el-input v-model="formInline.image_path" placeholder="请输入文件/文件夹路径" clearable/>
+        <el-input v-model="formInline.image_path" placeholder="请输入文件/文件夹路径" clearable />
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="onSubmit(formInline)" >提交</el-button>
+        <el-button type="primary" @click="onSubmit(formInline)" :loading = "loading">提交</el-button>
       </el-form-item>
     </el-form>
     <el-divider></el-divider>

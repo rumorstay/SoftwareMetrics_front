@@ -16,6 +16,12 @@ export default defineConfig({
     },
   },
   server: {
+    watch: {
+      usePolling: true, // 修复文件监听问题
+    },
+    fs: {
+      strict: false,
+    },
     host: "localhost",
     hmr:true,
     open: true, //配置自动启动浏览器

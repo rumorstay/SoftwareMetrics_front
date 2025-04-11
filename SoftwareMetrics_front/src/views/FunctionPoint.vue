@@ -11,6 +11,8 @@ import { getFP} from "@/api/all_api";
 
 let Page_name = "功能点度量";
 
+let loading = ref(false)
+
 const tableData =ref<UC>({ fp: 0, ufc: 0, vaf: 0 })
 
 let fp = ref(0)
@@ -92,12 +94,14 @@ interface UC {
 
 
 const onSubmit = async (ruleForm) => {
+  loading.value = true
   console.log('submit!')
   console.log(ruleForm)
   fp_before.value = fp.value
   ufc_before.value = ufc.value
   vaf_before.value = vaf.value
   await getFP(ruleForm).then((res)=>{
+    loading.value = false
     show_Data.value = true
     console.log(res)
     fp.value = res.data.fp
@@ -126,6 +130,7 @@ const onSubmit = async (ruleForm) => {
     show_Data.value = true
 
   }).catch(error=>{
+    loading.value=false
     console.log(error)
   })
 }
@@ -269,7 +274,7 @@ const handleExceed: UploadProps['onExceed'] = (files) => {
         <el-slider v-model="ruleForm.complexDataStructure"  show-stops :max="5"/>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="onSubmit(ruleForm)">
+        <el-button type="primary" @click="onSubmit(ruleForm)" :loading="loading">
           提交
         </el-button>
       </el-form-item>
@@ -392,12 +397,6 @@ const handleExceed: UploadProps['onExceed'] = (files) => {
           </div>
         </el-col>
       </el-row>
-
-<!--      <el-descriptions direction="vertical" border>-->
-<!--        <el-descriptions-item label="fp">{{ tableData.fp }}</el-descriptions-item>-->
-<!--        <el-descriptions-item label="ufc">{{ tableData.ufc }}</el-descriptions-item>-->
-<!--        <el-descriptions-item label="vaf">{{ tableData.vaf }}</el-descriptions-item>-->
-<!--      </el-descriptions>-->
     </div>
 
   </FunctionModel>
