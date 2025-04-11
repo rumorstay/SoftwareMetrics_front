@@ -16,7 +16,7 @@ let loading = ref(false)
 const fileData:UploadUserFile[]=([
   {
     name: 'Class1.png',
-    url: "H:\\Code\\软件度量实验\\new\\Experiment4SoftwareMetrics\\Backend\\test_case\\Class1.png"
+    url: "D:\\study\\软件度量\\实验\\Experiment4SoftwareMetrics\\Backend\\test_case\\Class1.png"
   },
 ])
 
@@ -34,7 +34,7 @@ const handleFolderSelect = async (file)=>{
   console.log(file.name); // 当前选中的文件对象
   if (!file.name) return null; // 如果 name 无效，返回 null
   const file1 = fileData.find(f => f.name === file.name);
-  const fileurl = file1 ? file1.url : "H:\\Code\\软件度量实验\\new\\Experiment4SoftwareMetrics\\Backend\\test_case\\Class1.png";
+  const fileurl = file1 ? file1.url : "D:\\study\\软件度量\\实验\\Experiment4SoftwareMetrics\\Backend\\test_case\\Class1.png";
   formInline.image_path = fileurl;
   onSubmit(formInline)
 }
@@ -65,7 +65,7 @@ interface RuleForm {
   image_path: string
 }
 const formInline = reactive<RuleForm>({
-  image_path: 'H:\\Code\\软件度量实验\\new\\Experiment4SoftwareMetrics\\Backend\\test_case\\Class1.png',
+  image_path: 'D:\\study\\软件度量\\实验\\Experiment4SoftwareMetrics\\Backend\\test_case\\Class1.png',
 })
 
 const onSubmit = async (formInline) => {

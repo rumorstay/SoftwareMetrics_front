@@ -22,20 +22,20 @@ watch(tableData.value,(newValue)=>{
 
 let file_name = ref('')
 
-let file_before = 'H:/Code/软件度量实验/Experiment4SoftwareMetrics/Backend/test_case/exp4'
+let file_before = 'D:/study/软件度量/实验/Experiment4SoftwareMetrics/Backend/test_case/exp4'
 
 const fileData:UploadUserFile[]=([
   {
     name: 'APIConnector.java',
-    url: "H:/Code/软件度量实验/Experiment4SoftwareMetrics/Backend/test_case/exp4/APIConnector.java"
+    url: "D:/study/软件度量/实验/Experiment4SoftwareMetrics/Backend/test_case/exp4/APIConnector.java"
   },
   {
     name: 'Demo2.java',
-    url: "H:/Code/软件度量实验/Experiment4SoftwareMetrics/Backend/test_case/exp4/Demo2.java"
+    url: "D:/study/软件度量/实验/Experiment4SoftwareMetrics/Backend/test_case/exp4/Demo2.java"
   },
   {
     name:'Demo1.java',
-    url: "H:/Code/软件度量实验/Experiment4SoftwareMetrics/Backend/test_case/exp4/Demo1.java"
+    url: "D:/study/软件度量/实验/Experiment4SoftwareMetrics/Backend/test_case/exp4/Demo1.java"
   }
 ])
 
@@ -92,7 +92,7 @@ interface RuleForm {
   file_path: string
 }
 const formInline = reactive<RuleForm>({
-  file_path: 'H:/Code/软件度量实验/Experiment4SoftwareMetrics/Backend/test_case/exp4',
+  file_path: 'D:/study/软件度量/实验/Experiment4SoftwareMetrics/Backend/test_case/exp4',
 })
 
 const onSubmit = async (formInline) => {

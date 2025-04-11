@@ -57,7 +57,7 @@ interface RuleForm {
 
 const ruleFormRef = ref<FormInstance>()
 const ruleForm = reactive<RuleForm>({
-  image_path: 'H:\\Code\\软件度量实验\\new1\\Experiment4SoftwareMetrics\\Backend\\uploads\\DFD1.png',
+  image_path: 'D:\\study\\软件度量\\实验\\Experiment4SoftwareMetrics\\Backend\\uploads\\DFD1.png',
   ilfComplexity: '一般',
   eifComplexity: '简单',
   eiComplexity: '复杂',
@@ -139,18 +139,18 @@ let show_Data = ref(false)
 const fileData:UploadUserFile[]=([
   {
     name: '1.png',
-    url: "H:\\Code\\软件度量实验\\new1\\Experiment4SoftwareMetrics\\Backend\\uploads\\1.png"
+    url: "D:\\study\\软件度量\\实验\\Experiment4SoftwareMetrics\\Backend\\uploads\\1.png"
   },
   {
     name:'DFD1.png',
-    url: "H:\\Code\\软件度量实验\\new1\\Experiment4SoftwareMetrics\\Backend\\uploads\\DFD1.png"
+    url: "D:\\study\\软件度量\\实验\\Experiment4SoftwareMetrics\\Backend\\uploads\\DFD1.png"
   }
 ])
 const handleFolderSelect = async (file)=>{
   console.log(file.name); // 当前选中的文件对象
   if (!file.name) return null; // 如果 name 无效，返回 null
   const file1 = fileData.find(f => f.name === file.name);
-  const fileurl = file1 ? file1.url : "H:\\Code\\软件度量实验\\new1\\Experiment4SoftwareMetrics\\Backend\\uploads\\DFD1.png";
+  const fileurl = file1 ? file1.url : "D:\\study\\软件度量\\实验\\Experiment4SoftwareMetrics\\Backend\\uploads\\DFD1.png";
   ruleForm.image_path = fileurl;
 }
 

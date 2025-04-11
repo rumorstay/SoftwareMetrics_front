@@ -10,11 +10,11 @@ const ShowtheTable = ref(false);
 const fileData:UploadUserFile[]=([
   {
     name: 'control.dot',
-    url: "H:\\Code\\软件度量实验\\new1\\Experiment4SoftwareMetrics\\Backend\\image\\control.dot"
+    url: "D:\\study\\软件度量\\实验\\Experiment4SoftwareMetrics\\Backend\\image\\control.dot"
   },
   {
     name:'use_case.dot',
-    url: "H:\\Code\\软件度量实验\\new1\\Experiment4SoftwareMetrics\\Backend\\image\\use_case.dot"
+    url: "D:\\study\\软件度量\\实验\\Experiment4SoftwareMetrics\\Backend\\image\\use_case.dot"
   }
 ])
 
@@ -39,7 +39,7 @@ const handleFolderSelect = async (file)=>{
   console.log(file.name); // 当前选中的文件对象
   if (!file.name) return null; // 如果 name 无效，返回 null
   const file1 = fileData.find(f => f.name === file.name);
-  const fileurl = file1 ? file1.url : "H:\\Code\\软件度量实验\\new1\\Experiment4SoftwareMetrics\\Backend\\image\\control.dot";
+  const fileurl = file1 ? file1.url : "D:\\study\\软件度量\\实验\\Experiment4SoftwareMetrics\\Backend\\image\\control.dot";
   formInline.dot_file = fileurl;
   let formData = new FormData();
   formData.append('dot_file', fileurl);
@@ -53,7 +53,7 @@ interface RuleForm {
 }
 
 const formInline = reactive<RuleForm>({
-  dot_file: 'H:\\Code\\软件度量实验\\new1\\Experiment4SoftwareMetrics\\Backend\\image\\control.dot',
+  dot_file: 'D:\\study\\软件度量\\实验\\Experiment4SoftwareMetrics\\Backend\\image\\control.dot',
 })
 const onSubmit = async (formInline) => {
   console.log('submit!')

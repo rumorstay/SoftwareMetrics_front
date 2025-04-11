@@ -14,7 +14,7 @@ import { getUC} from "@/api/all_api";
 
 let Page_name = "用例点度量";
 
-let image_path = ref('Backend\\test_case\\DFD_examples\\DFD1.png')
+let image_path = ref('D:\\study\\软件度量\\实验\\Experiment4SoftwareMetrics\\Backend\\test_case\\DFD_examples\\DFD1.png')
 
 interface Env_RuleForm {
   image_path: string
@@ -29,7 +29,7 @@ interface Env_RuleForm {
 
 const Env_ruleFormRef = ref<FormInstance>()
 const Env_ruleForm = reactive<Env_RuleForm>({
-  image_path: 'H:\\Code\\软件度量实验\\Experiment4SoftwareMetrics\\Backend\\test_case\\DFD_examples\\DFD1.png',
+  image_path: 'D:\\study\\软件度量\\实验\\Experiment4SoftwareMetrics\\Backend\\test_case\\DFD_examples\\DFD1.png',
   UML_Familiarity:0,
   App_develop_ex:1,
   O_O_ex: 2,
@@ -256,7 +256,7 @@ const upload = ref<UploadInstance>()
 const fileData:UploadUserFile[]=([
   {
     name: 'DFD1.png',
-    url: "H:\\Code\\软件度量实验\\Experiment4SoftwareMetrics\\Backend\\test_case\\DFD_examples\\DFD1.png"
+    url: "D:\\study\\软件度量\\实验\\Experiment4SoftwareMetrics\\Backend\\test_case\\DFD_examples\\DFD1.png"
   },
 ])
 
@@ -273,7 +273,7 @@ const handleFolderSelect = async (file)=>{
   console.log(file.name); // 当前选中的文件对象
   if (!file.name) return null; // 如果 name 无效，返回 null
   const file1 = fileData.find(f => f.name === file.name);
-  const fileurl = file1 ? file1.url : "H:\\Code\\软件度量实验\\Experiment4SoftwareMetrics\\Backend\\test_case\\DFD_examples\\DFD1.png";
+  const fileurl = file1 ? file1.url : "D:\\study\\软件度量\\实验\\Experiment4SoftwareMetrics\\Backend\\test_case\\DFD_examples\\DFD1.png";
   image_path.value = fileurl;
 }
 

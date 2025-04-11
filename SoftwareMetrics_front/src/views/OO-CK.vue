@@ -21,19 +21,19 @@ const ShowtheTable = ref(false);
 const fileData:UploadUserFile[]=([
   {
     name: 'B.java',
-    url: "H:\\Code\\软件度量实验\\new1\\Experiment4SoftwareMetrics\\Backend\\test_case\\java\\src\\B.java"
+    url: "D:\\study\\软件度量\\实验\\Experiment4SoftwareMetrics\\Backend\\test_case\\java\\src\\B.java"
   },
   {
     name: 'C.java',
-    url: "H:\\Code\\软件度量实验\\new1\\Experiment4SoftwareMetrics\\Backend\\test_case\\java\\src\\C.java"
+    url: "D:\\study\\软件度量\\实验\\Experiment4SoftwareMetrics\\Backend\\test_case\\java\\src\\C.java"
   },
   {
     name: 'D.java',
-    url: "H:\\Code\\软件度量实验\\new1\\Experiment4SoftwareMetrics\\Backend\\test_case\\java\\src\\D.java"
+    url: "D:\\study\\软件度量\\实验\\Experiment4SoftwareMetrics\\Backend\\test_case\\java\\src\\D.java"
   },
   {
     name: 'Main.java',
-    url: "H:\\Code\\软件度量实验\\new1\\Experiment4SoftwareMetrics\\Backend\\test_case\\java\\src\\Main.java"
+    url: "D:\\study\\软件度量\\实验\\Experiment4SoftwareMetrics\\Backend\\test_case\\java\\src\\Main.java"
   },
 ])
 
@@ -64,7 +64,7 @@ const handleFolderSelect = async (file)=>{
   console.log(file.name); // 当前选中的文件对象
   if (!file.name) return null; // 如果 name 无效，返回 null
   const file1 = fileData.find(f => f.name === file.name);
-  const fileurl = file1 ? file1.url : "H:\\Code\\软件度量实验\\new\\Experiment4SoftwareMetrics\\Backend\\test_case\\java";
+  const fileurl = file1 ? file1.url : "D:\\study\\软件度量\\实验\\Experiment4SoftwareMetrics\\Backend\\test_case\\java";
   formInline.file_path = fileurl;
   onSubmit1(formInline)
 }
@@ -77,7 +77,7 @@ interface RuleForm {
 }
 
 const formInline = reactive<RuleForm>({
-  file_path: 'H:\\Code\\软件度量实验\\new\\Experiment4SoftwareMetrics\\Backend\\test_case\\java',
+  file_path: 'D:\\study\\软件度量\\实验\\Experiment4SoftwareMetrics\\Backend\\test_case\\java',
 })
 const onSubmit = async () => {
   console.log('submit!')
