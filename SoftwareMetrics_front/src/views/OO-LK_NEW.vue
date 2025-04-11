@@ -15,13 +15,9 @@ let loading = ref(false)
 
 const fileData:UploadUserFile[]=([
   {
-    name: 'ClassDiagram1.xml',
-    url: "H:\\Code\\软件度量实验\\new\\Experiment4SoftwareMetrics\\Backend\\test_case\\ClassDiagram1.xml"
+    name: 'Class1.png',
+    url: "H:\\Code\\软件度量实验\\new\\Experiment4SoftwareMetrics\\Backend\\test_case\\Class1.png"
   },
-  {
-    name:'ClassDiagram2.xml',
-    url: "H:\\Code\\软件度量实验\\new\\Experiment4SoftwareMetrics\\Backend\\test_case\\ClassDiagram2.xml"
-  }
 ])
 
 const upload = ref<UploadInstance>()
@@ -38,8 +34,8 @@ const handleFolderSelect = async (file)=>{
   console.log(file.name); // 当前选中的文件对象
   if (!file.name) return null; // 如果 name 无效，返回 null
   const file1 = fileData.find(f => f.name === file.name);
-  const fileurl = file1 ? file1.url : "H:\\Code\\软件度量实验\\new\\Experiment4SoftwareMetrics\\Backend\\test_case\\ClassDiagram2.xml";
-  formInline.file_path = fileurl;
+  const fileurl = file1 ? file1.url : "H:\\Code\\软件度量实验\\new\\Experiment4SoftwareMetrics\\Backend\\test_case\\Class1.png";
+  formInline.image_path = fileurl;
   onSubmit(formInline)
 }
 
@@ -66,10 +62,10 @@ const tableData = ref<OLK_N[]>([])
 import { reactive } from 'vue'
 
 interface RuleForm {
-  file_path: string
+  image_path: string
 }
 const formInline = reactive<RuleForm>({
-  file_path: 'H:\\Code\\软件度量实验\\new\\Experiment4SoftwareMetrics\\Backend\\test_case\\ClassDiagram1.xml',
+  image_path: 'H:\\Code\\软件度量实验\\new\\Experiment4SoftwareMetrics\\Backend\\test_case\\Class1.png',
 })
 
 const onSubmit = async (formInline) => {
@@ -81,7 +77,6 @@ const onSubmit = async (formInline) => {
     loading.value = false
     tableData.value = []
     console.log(res)
-    CS.value = res.data.CS
     const data = res.data.metrics
     const tableDataArray = Object.keys(data).map(className => ({
       className: className,
@@ -116,7 +111,7 @@ const onSubmit = async (formInline) => {
              label-position="right"
     >
       <el-form-item label="请输入文件/文件夹路径">
-        <el-input v-model="formInline.file_path" placeholder="请输入文件/文件夹路径" clearable/>
+        <el-input v-model="formInline.image_path" placeholder="请输入文件/文件夹路径" clearable/>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="onSubmit(formInline)" >提交</el-button>

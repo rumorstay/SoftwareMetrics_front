@@ -7,11 +7,9 @@ import {
   FormRules, UploadProps, UploadUserFile,
 
 } from "element-plus";
-import {getCC, getFP, getUC} from "@/api/all_api";
+import { getFP} from "@/api/all_api";
 
 let Page_name = "功能点度量";
-
-
 
 const tableData =ref<UC>({ fp: 0, ufc: 0, vaf: 0 })
 
@@ -27,9 +25,9 @@ let fp_big = ref(false)
 let ufc_big = ref(false)
 let vaf_big = ref(false)
 
-let fp_before = ref(0)
-let ufc_before = ref(0)
-let vaf_before = ref(0)
+let fp_before = ref(0.000000)
+let ufc_before = ref(0.000000)
+let vaf_before = ref(0.000000)
 
 interface RuleForm {
   image_path: string
@@ -100,6 +98,7 @@ const onSubmit = async (ruleForm) => {
   ufc_before.value = ufc.value
   vaf_before.value = vaf.value
   await getFP(ruleForm).then((res)=>{
+    show_Data.value = true
     console.log(res)
     fp.value = res.data.fp
     ufc.value = res.data.ufc
@@ -130,7 +129,7 @@ const onSubmit = async (ruleForm) => {
     console.log(error)
   })
 }
-let show_Data = ref(true)
+let show_Data = ref(false)
 
 const fileData:UploadUserFile[]=([
   {
@@ -282,7 +281,7 @@ const handleExceed: UploadProps['onExceed'] = (files) => {
       <el-row :gutter="16">
         <el-col :span="8">
           <div class="statistic-card">
-            <el-statistic :value="tableData.fp">
+            <el-statistic precision = "6"  :value="fp.toFixed(6)">
               <template #title>
                 <div style="display: inline-flex; align-items: center">
                   功能点
@@ -316,10 +315,11 @@ const handleExceed: UploadProps['onExceed'] = (files) => {
               </div>
             </div>
           </div>
+
         </el-col>
         <el-col :span="8">
           <div class="statistic-card">
-            <el-statistic :value="ufc">
+            <el-statistic precision = "6" :value="ufc">
               <template #title>
                 <div style="display: inline-flex; align-items: center">
                   未调整前的功能点数
@@ -356,7 +356,7 @@ const handleExceed: UploadProps['onExceed'] = (files) => {
         </el-col>
         <el-col :span="8">
           <div class="statistic-card">
-            <el-statistic :value="vaf">
+            <el-statistic precision = "6" :value="vaf">
               <template #title>
                 <div style="display: inline-flex; align-items: center">
                   复杂度调整系数
@@ -393,11 +393,11 @@ const handleExceed: UploadProps['onExceed'] = (files) => {
         </el-col>
       </el-row>
 
-      <el-descriptions direction="vertical" border>
-        <el-descriptions-item label="fp">{{ tableData.fp }}</el-descriptions-item>
-        <el-descriptions-item label="ufc">{{ tableData.ufc }}</el-descriptions-item>
-        <el-descriptions-item label="vaf">{{ tableData.vaf }}</el-descriptions-item>
-      </el-descriptions>
+<!--      <el-descriptions direction="vertical" border>-->
+<!--        <el-descriptions-item label="fp">{{ tableData.fp }}</el-descriptions-item>-->
+<!--        <el-descriptions-item label="ufc">{{ tableData.ufc }}</el-descriptions-item>-->
+<!--        <el-descriptions-item label="vaf">{{ tableData.vaf }}</el-descriptions-item>-->
+<!--      </el-descriptions>-->
     </div>
 
   </FunctionModel>

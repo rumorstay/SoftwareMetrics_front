@@ -16,6 +16,8 @@ export default defineConfig({
     },
   },
   server: {
+    host: "localhost",
+    hmr:true,
     open: true, //配置自动启动浏览器
     proxy:{
       //解决跨域问题 8080为后端url
